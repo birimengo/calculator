@@ -1,0 +1,6 @@
+# Add these to ensure dist is included in npm but not git
+dist/
+.DS_Store
+node_modules/
+.env
+*.log

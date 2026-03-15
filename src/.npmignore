@@ -1,0 +1,13 @@
+# This file ensures certain files are NOT included in npm package
+node_modules/
+src/
+public/
+.git/
+.github/
+vite.config.js
+vite.lib.config.js
+.eslintrc.js
+*.log
+.DS_Store
+.env
+*.map
