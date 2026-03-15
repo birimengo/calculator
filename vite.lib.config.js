@@ -1,5 +1,5 @@
 // vite.lib.config.js
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite'  // Add this line!
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 
@@ -8,8 +8,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/index.js'),
-      name: 'CalculatorModule',
-      fileName: (format) => `index.${format}.js`
+      name: 'Calculator',
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'lucide-react'],

@@ -1,65 +1,27 @@
-// src/components/Display.jsx
-import { memo, useState, useEffect } from 'react'
-import { Calculator, Clock, Zap } from 'lucide-react'
+// src/components/Display.jsx - Minimalist Version
+import { memo } from 'react'
 
-export const Display = memo(({ 
-  value, 
-  expression, 
-  memory 
-}) => {
-  const [time, setTime] = useState(new Date())
-  
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000)
-    return () => clearInterval(timer)
-  }, [])
-
+export const Display = memo(({ value, memory, expression }) => {
   return (
-    <div className="bg-card rounded-xl p-6 shadow-inner border border-custom">
-      
-      {/* Calculator Header */}
-      <div className="flex justify-between items-center mb-4 text-sm text-secondary">
-        <div className="flex items-center gap-2">
-          <Calculator className="w-4 h-4" />
-          <span>Standard</span>
-        </div>
-        <div className="flex items-center gap-4">
-          {memory !== 0 && (
-            <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400">
-              <span className="text-xs">M</span>
-              <span>{memory}</span>
-            </div>
-          )}
-          <div className="flex items-center gap-1">
-            <Clock className="w-3 h-3" />
-            <span>{time.toLocaleTimeString()}</span>
-          </div>
-        </div>
+    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+      {/* Expression - Subtle */}
+      <div className="text-right text-sm text-gray-400 dark:text-gray-500 font-mono mb-1 h-5">
+        {expression}
       </div>
-
-      {/* Expression Display */}
-      {expression.length > 0 && (
-        <div className="text-right text-sm text-secondary mb-2 font-mono">
-          {expression.join(' ')}
-        </div>
-      )}
-
-      {/* Main Display */}
+      
+      {/* Main Value - Bold */}
       <div className="text-right">
-        <div className="text-5xl font-bold text-primary font-mono truncate">
+        <div className="text-6xl font-light text-gray-900 dark:text-white font-mono tracking-tight">
           {value}
         </div>
       </div>
-
-      {/* Binary Representation */}
-      <div className="flex justify-end mt-2">
-        <div className="flex items-center gap-1 text-xs text-secondary opacity-60">
-          <Zap className="w-3 h-3" />
-          <span className="font-mono">
-            {value !== 'Error' ? parseInt(value).toString(2).slice(0, 16) : 'ERROR'}
-          </span>
+      
+      {/* Memory Badge - Minimal */}
+      {memory !== 0 && (
+        <div className="absolute top-2 left-2 text-xs text-blue-500 dark:text-blue-400 font-medium">
+          M={memory}
         </div>
-      </div>
+      )}
     </div>
   )
 })

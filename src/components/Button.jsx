@@ -5,33 +5,32 @@ export const Button = memo(({
   children, 
   onClick, 
   type = 'number',
-  size = 'normal',
   className = ''
 }) => {
-  const sizeClasses = {
-    small: 'px-3 py-2 text-sm',
-    normal: 'px-4 py-3 text-base',
-    large: 'px-6 py-4 text-lg'
-  }
-
+  const baseClasses = "px-4 py-3 text-base rounded-lg font-semibold transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md"
+  
+  // Using BizCore's theme classes with proper colors
   const typeClasses = {
-    number: 'bg-button-number text-primary',
-    operator: 'bg-button-operator text-white',
-    function: 'bg-button-function text-primary',
-    equals: 'bg-button-equals text-white col-span-2',
-    memory: 'bg-button-memory text-white text-sm'
+    // Number buttons: standard theme colors
+    number: 'bg-button-number text-primary hover:bg-button-number-hover',
+    
+    // Operator buttons: blue background with white text
+    operator: 'bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700',
+    
+    // Function buttons: standard theme colors
+    function: 'bg-button-function text-primary hover:bg-button-function-hover',
+    
+    // Equals button: blue background (darker shade)
+    equals: 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800',
+    
+    // Memory buttons: blue text on light purple background
+    memory: 'bg-button-memory text-blue-600 dark:text-blue-400 hover:bg-button-memory-hover text-sm'
   }
 
   return (
     <button
       onClick={onClick}
-      className={`
-        ${sizeClasses[size]}
-        ${typeClasses[type]}
-        rounded-lg font-semibold transition-all duration-200 
-        active:scale-95 shadow-sm hover:shadow-md
-        ${className}
-      `}
+      className={`${baseClasses} ${typeClasses[type]} ${className}`}
     >
       {children}
     </button>

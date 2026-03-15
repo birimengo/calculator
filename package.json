@@ -1,15 +1,12 @@
 {
   "name": "@birimengo/calculator",
-  "version": "1.0.0",
-  "description": "A beautiful calculator component with memory functions and multiple themes",
+  "version": "1.0.3",
+  "description": "A beautiful calculator component with memory functions",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
+  "module": "dist/index.es.js",
   "files": [
     "dist",
-    "README.md",
-    "LICENSE"
+    "README.md"
   ],
   "scripts": {
     "dev": "vite",
@@ -17,25 +14,6 @@
     "prepublishOnly": "npm run build",
     "preview": "vite preview"
   },
-  "keywords": [
-    "react",
-    "calculator",
-    "component",
-    "ui",
-    "math",
-    "memory-calculator",
-    "bizcore"
-  ],
-  "author": "Your Name <your.email@example.com>",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/birimengo/calculator.git"
-  },
-  "bugs": {
-    "url": "https://github.com/birimengo/calculator/issues"
-  },
-  "homepage": "https://github.com/birimengo/calculator#readme",
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"
@@ -44,20 +22,16 @@
     "lucide-react": "^0.577.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.29.0",
-    "@tailwindcss/vite": "^4.2.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react-swc": "^3.11.0",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9.29.0",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.2.0",
-    "postcss": "^8.5.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.2.1",
     "vite": "^7.0.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "calculator",
+    "bizcore"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
 }
