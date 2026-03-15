@@ -1,6 +1,6 @@
 {
   "name": "@birimengo/calculator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A beautiful calculator component with memory functions",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
