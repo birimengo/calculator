@@ -1,5 +1,5 @@
 // src/components/Calculator.jsx
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Display } from './Display'
 import { Keypad } from './Keypad'
 
@@ -9,7 +9,17 @@ export const Calculator = () => {
   const [operator, setOperator] = useState(null)
   const [previousValue, setPreviousValue] = useState(null)
   const [waitingForOperand, setWaitingForOperand] = useState(false)
-  const [expression, setExpression] = useState('') // Track full expression
+  const [expression, setExpression] = useState('')
+
+  // Listen for theme changes on parent document
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      // Force re-render when theme changes
+      setDisplay(prev => prev)
+    })
+    observer.observe(document.documentElement, { attributes: true })
+    return () => observer.disconnect()
+  }, [])
 
   const inputDigit = (digit) => {
     if (waitingForOperand) {
@@ -56,14 +66,12 @@ export const Calculator = () => {
   const performOperation = (nextOperator) => {
     const inputValue = parseFloat(display)
     
-    // Build expression
     if (previousValue === null) {
       setExpression(`${inputValue} ${nextOperator}`)
       setPreviousValue(inputValue)
     } else {
       setExpression(`${previousValue} ${operator} ${inputValue} =`)
       
-      // Calculate result
       const currentValue = previousValue || 0
       let newValue
 

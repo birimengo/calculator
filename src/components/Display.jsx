@@ -1,24 +1,24 @@
-// src/components/Display.jsx - Minimalist Version
+// src/components/Display.jsx
 import { memo } from 'react'
 
 export const Display = memo(({ value, memory, expression }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
-      {/* Expression - Subtle */}
-      <div className="text-right text-sm text-gray-400 dark:text-gray-500 font-mono mb-1 h-5">
+    <div className="border border-white/30 rounded-2xl p-6 bg-black/5">
+      {/* Expression - Blue, subtle */}
+      <div className="text-right text-sm text-blue-600 dark:text-blue-400 font-mono mb-1 h-5 opacity-70">
         {expression}
       </div>
       
-      {/* Main Value - Bold */}
+      {/* Main Value - Bold Blue */}
       <div className="text-right">
-        <div className="text-6xl font-light text-gray-900 dark:text-white font-mono tracking-tight">
+        <div className="text-6xl font-light text-blue-600 dark:text-blue-400 font-mono tracking-tight">
           {value}
         </div>
       </div>
       
-      {/* Memory Badge - Minimal */}
+      {/* Memory Badge - Blue with white border */}
       {memory !== 0 && (
-        <div className="absolute top-2 left-2 text-xs text-blue-500 dark:text-blue-400 font-medium">
+        <div className="absolute top-2 left-2 text-xs border border-white/30 rounded-full px-2 py-1 bg-black/5 text-blue-600 dark:text-blue-400 font-medium">
           M={memory}
         </div>
       )}

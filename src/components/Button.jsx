@@ -7,24 +7,24 @@ export const Button = memo(({
   type = 'number',
   className = ''
 }) => {
-  const baseClasses = "px-4 py-3 text-base rounded-lg font-semibold transition-all duration-200 active:scale-95 shadow-sm hover:shadow-md"
+  const baseClasses = "px-4 py-3 text-base rounded-lg font-semibold transition-all duration-200 active:scale-95 shadow-sm border border-white/30 hover:border-white/60"
   
-  // Using BizCore's theme classes with proper colors
+  // All buttons have blue text with white border
   const typeClasses = {
-    // Number buttons: standard theme colors
-    number: 'bg-button-number text-primary hover:bg-button-number-hover',
+    // Number buttons: blue text, subtle background
+    number: 'bg-black/5 text-blue-600 dark:text-blue-400 hover:bg-black/10',
     
-    // Operator buttons: blue background with white text
-    operator: 'bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700',
+    // Operator buttons: blue text, slightly darker background
+    operator: 'bg-black/10 text-blue-600 dark:text-blue-400 hover:bg-black/20',
     
-    // Function buttons: standard theme colors
-    function: 'bg-button-function text-primary hover:bg-button-function-hover',
+    // Function buttons: blue text, subtle background
+    function: 'bg-black/5 text-blue-600 dark:text-blue-400 hover:bg-black/10',
     
-    // Equals button: blue background (darker shade)
-    equals: 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800',
+    // Equals button: blue text, slightly darker
+    equals: 'bg-black/10 text-blue-600 dark:text-blue-400 hover:bg-black/20',
     
-    // Memory buttons: blue text on light purple background
-    memory: 'bg-button-memory text-blue-600 dark:text-blue-400 hover:bg-button-memory-hover text-sm'
+    // Memory buttons: blue text, subtle background
+    memory: 'bg-black/5 text-blue-600 dark:text-blue-400 hover:bg-black/10 text-sm'
   }
 
   return (
